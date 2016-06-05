@@ -1,0 +1,19 @@
+{
+  "name": "mpress-custom-front-page",
+  "description": "A WordPress plugin that allows you to easily set any page or post, including custom post types, as the homepage for your site.",
+  "author": "Micah Wood <micah@wpscholar.com> (http://wpscholar.com)",
+  "license": "GPL-3.0+",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wpscholar/mpress-custom-front-page.git"
+  },
+  "devDependencies": {
+    "del": "^1.2.1",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-shell": "^0.4.3",
+    "mac-sounds": "^0.1.1",
+    "yargs": "^3.32.0"
+  }
+}
