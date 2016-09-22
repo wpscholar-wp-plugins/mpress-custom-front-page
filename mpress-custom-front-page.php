@@ -56,11 +56,9 @@ if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 		 */
 		public function wp_dropdown_pages( $output ) {
 			global $pagenow;
-			if ( 'options-reading.php' == $pagenow && preg_match( '#page_on_front#', $output ) ) {
+			if ( ('options-reading.php' === $pagenow || 'customize.php' === $pagenow) && preg_match( '#page_on_front#', $output ) ) {
 				$output = $this->posts_dropdown();
-			}elseif('customize.php' == $pagenow && preg_match( '#page_on_front#', $output)){
-                            $output = $this->posts_dropdown();
-                        }
+			}
 
 			return $output;
 		}
