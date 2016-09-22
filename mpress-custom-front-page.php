@@ -58,7 +58,9 @@ if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 			global $pagenow;
 			if ( 'options-reading.php' == $pagenow && preg_match( '#page_on_front#', $output ) ) {
 				$output = $this->posts_dropdown();
-			}
+			}elseif('customize.php' == $pagenow && preg_match( '#page_on_front#', $output)){
+                            $output = $this->posts_dropdown();
+                        }
 
 			return $output;
 		}
