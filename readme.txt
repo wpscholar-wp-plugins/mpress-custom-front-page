@@ -3,8 +3,8 @@ Contributors: woodent
 Donate link: https://www.paypal.me/wpscholar/15
 Tags: front page, homepage, custom post type, custom front page, custom homepage, custom post type as front page, custom post type as homepage
 Requires at least: 3.0
-Tested up to: 4.5.2
-Stable tag: 1.0
+Tested up to: 4.6.1
+Stable tag: 1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -68,6 +68,11 @@ Once the plugin is installed and activated, go to 'Settings' -> 'Reading' in the
 
 == Changelog ==
 
+= 1.1 =
+
+* Updated dropdown in customizer to support all registered post types (thanks https://github.com/WebDevLan4You).
+* Tested in WordPress version 4.6.1
+
 = 1.0 =
 
 * Tested in WordPress version 4.5.2
@@ -83,6 +88,10 @@ Once the plugin is installed and activated, go to 'Settings' -> 'Reading' in the
 * Initial commit
 
 == Upgrade Notice ==
+
+= 1.1 =
+
+* Dropdown in customizer now supports the display of all registered content types.
 
 = 1.0 =
 

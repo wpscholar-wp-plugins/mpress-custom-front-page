@@ -6,14 +6,14 @@
  * Description: Easily set a custom post type as your front page.
  * Author: Micah Wood
  * Author URI: https://wpscholar.com
- * Version: 1.0
+ * Version: 1.1
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  * Copyright 2012-2016 by Micah Wood - All rights reserved.
  */
 
-define( 'MPRESS_CUSTOM_FRONT_PAGE_VERSION', '1.0' );
+define( 'MPRESS_CUSTOM_FRONT_PAGE_VERSION', '1.1' );
 
 if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 
