@@ -6,14 +6,14 @@
  * Description: Easily set a custom post type as your front page.
  * Author: Micah Wood
  * Author URI: https://wpscholar.com
- * Version: 1.1
+ * Version: 1.2
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  * Copyright 2012-2016 by Micah Wood - All rights reserved.
  */
 
-define( 'MPRESS_CUSTOM_FRONT_PAGE_VERSION', '1.1' );
+define( 'MPRESS_CUSTOM_FRONT_PAGE_VERSION', '1.2' );
 
 if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 
@@ -56,21 +56,28 @@ if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 		 */
 		public function wp_dropdown_pages( $output ) {
 			global $pagenow;
-			if ( ('options-reading.php' === $pagenow || 'customize.php' === $pagenow) && preg_match( '#page_on_front#', $output ) ) {
-				$output = $this->posts_dropdown();
+            if (('options-reading.php' === $pagenow || 'customize.php' === $pagenow) && (
+                    false !== strpos($output, 'page_on_front')
+                )) {
+                $output = $this->posts_dropdown('any', 'page_on_front');
+            }
+            if (('options-reading.php' === $pagenow || 'customize.php' === $pagenow) && (
+                    false !== strpos($output, 'page_for_posts')
+                )) {
+                $output = $this->posts_dropdown('any', 'page_for_posts');
 			}
 
 			return $output;
 		}
-
 		/**
 		 * Generate a list of available posts to be used as the homepage
 		 *
 		 * @param string $post_type
 		 *
+		 * @param $selectionType
 		 * @return string $output
 		 */
-		protected function posts_dropdown( $post_type = 'any' ) {
+		protected function posts_dropdown( $post_type = 'any', $selectionType) {
 			$output = '';
 			if ( 'any' !== $post_type && ! post_type_exists( $post_type ) ) {
 				$post_type = 'page';
@@ -78,20 +85,24 @@ if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 			$posts = get_posts(
 				array(
 					'posts_per_page' => - 1,
-					'orderby'        => 'title',
+					'orderby'        => 'post_type title',
 					'order'          => 'ASC',
 					'post_type'      => $post_type,
 					'post_status'    => 'publish',
 				)
 			);
-			$front_page_id = get_option( 'page_on_front' );
+			$front_page_id = get_option( $selectionType );
 			$select = __( 'Select', 'mpress-custom-front-page' );
-			$output .= '<select name="page_on_front" id="page_on_front">';
+			$output .= '<select name="'.$selectionType.'" id="'.$selectionType.'">';
 			$output .= "<option value=\"0\">&mdash; {$select} &mdash;</option>";
 			foreach ( $posts as $post ) {
 				$selected = selected( $front_page_id, $post->ID, false );
 				$post_type_obj = get_post_type_object( $post->post_type );
-				$output .= "<option value=\"{$post->ID}\"{$selected}>{$post->post_title} ({$post_type_obj->labels->singular_name})</option>";
+				if ($post_type_obj) {
+					$output .= "<option value=\"{$post->ID}\" {$selected} >
+					{$post_type_obj->labels->singular_name} ID {$post->ID} - {$post->post_title}</option>";
+
+				}
 			}
 			$output .= '</select>';
 
@@ -115,12 +126,23 @@ if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 		}
 
 		/**
-		 * If the front page is loaded under its original URL, do a 301 redirect to the homepage.
+		 * If the front page is loaded under its original URL, do a 302 redirect to the homepage and keep
+		 * extra arguments if any. Useful for existing pages.
 		 */
 		public function template_redirect() {
 			global $post;
-			if ( is_singular() && ! is_front_page() && $post->ID == get_option( 'page_on_front' ) ) {
-				wp_safe_redirect( site_url(), 301 );
+
+			if (is_singular() && !is_front_page() && (int)$post->ID === (int)get_option( 'page_on_front' )) {
+
+				// build site url if it contains extra arguments
+				$siteUrl = site_url();
+				if (!empty($_GET)) {
+					$siteUrl .= '/?' . http_build_query($_GET);
+				}
+				// don't redirect with 301, only with 302 as homepage can changed to other pages in the future.
+				// if browsers cache that redirect once, it would always redirect to homepage.
+				// than the old homepage now with the default permalink would never be accessible again in that browser
+				wp_safe_redirect( $siteUrl );
 			}
 		}
 
