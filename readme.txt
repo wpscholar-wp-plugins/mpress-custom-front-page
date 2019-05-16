@@ -3,7 +3,7 @@ Contributors: woodent
 Donate link: https://www.paypal.me/wpscholar/15
 Tags: front page, homepage, custom post type, custom front page, custom homepage, custom post type as front page, custom post type as homepage
 Requires at least: 4.0
-Tested up to: 5.1.1
+Tested up to: 5.2
 Stable tag: 1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -73,8 +73,8 @@ Once the plugin is installed and activated, go to 'Settings' -> 'Reading' in the
 * Updated dropdown to also support any post_type for "Posts page" (page_for_posts).
 * Updated dropdown items to be grouped by 'post_type' and sorted by 'ASC'.
 * Change redirect status to 302 as homepage can changed to other pages in the future. If 301 is used, browsers will cache that redirect and it would always redirect to homepage. Then the old homepage now with the the original permalink would never be accessible again in that browser.
-* Don't redirect when Elegant Themes Divi Visual Builder is enabled
-* Tested in WordPress version 5.1.1
+* Keep URL arguments when redirecting. Useful for example to keep UTM tags from the original page when redirecting to the homepage.
+* Tested in WordPress version 5.2
 
 = 1.1 =
 
