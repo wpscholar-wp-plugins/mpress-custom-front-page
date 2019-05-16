@@ -30,7 +30,7 @@ if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 		 * @return mPress_Custom_Front_Page
 		 */
 		public static function get_instance() {
-			return self::$instance ?? new self();
+			return isset( self::$instance ) ? self::$instance : new self();
 		}
 
 		/**
@@ -126,19 +126,23 @@ if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 		}
 
 		/**
-		 * If the front page is loaded under its original URL, do a 302 redirect to the homepage.
+		 * If the front page is loaded under its original URL, do a 302 redirect to the homepage and keep
+		 * extra arguments if any. Useful for existing pages.
 		 */
 		public function template_redirect() {
 			global $post;
 
-            if ($_GET['et_fb'] !== '1' //don't redirect when Elegant Themes Divi Visual Builder is enabled
-                && is_singular() && !is_front_page()
-                && (int)$post->ID === (int)get_option( 'page_on_front' )
-            ) {
-                // don't redirect with 301, only with 302 as homepage can changed to other pages in the future.
-                // if browsers cache that redirect once, it would always redirect to homepage.
-                // than the old homepage now with the default permalink would never be accessible again in that browser
-                wp_safe_redirect( site_url() );
+			if (is_singular() && !is_front_page() && (int)$post->ID === (int)get_option( 'page_on_front' )) {
+
+				// build site url if it contains extra arguments
+				$siteUrl = site_url();
+				if (!empty($_GET)) {
+					$siteUrl .= '/?' . http_build_query($_GET);
+				}
+				// don't redirect with 301, only with 302 as homepage can changed to other pages in the future.
+				// if browsers cache that redirect once, it would always redirect to homepage.
+				// than the old homepage now with the default permalink would never be accessible again in that browser
+				wp_safe_redirect( $siteUrl );
 			}
 		}
 
