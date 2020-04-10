@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: mPress Custom Front Page
+ * Plugin Name: Custom Front Page
  * Plugin URI: https://wpscholar.com/wordpress-plugins/mpress-custom-front-page/
  * Description: Easily set a custom post type as your front page.
  * Author: Micah Wood

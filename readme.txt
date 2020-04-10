@@ -1,4 +1,4 @@
-=== mPress Custom Front Page ===
+=== Custom Front Page ===
 Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar/15
 Tags: front page, homepage, custom post type, custom front page, custom homepage, custom post type as front page, custom post type as homepage
@@ -12,13 +12,13 @@ Easily set any page or post, including custom post types, as the homepage for yo
 
 == Description ==
 
-The **mPress Custom Front Page** plugin allows to you set any post or page, including custom post types, as the homepage.
+The **Custom Front Page** plugin allows to you set any post or page, including custom post types, as the homepage.
 
 = Why? =
 
 Let's say you have created a 'landing page' post type.  This post type provides you with all the input fields and default
 design needed to make awesome landing pages easy.  These landing pages are so awesome, in fact, that you decide to use one as your homepage.
-But wait, WordPress won't let you do that... until now!  Just install mPress Custom Front Page and you can select any page, post or custom post type
+But wait, WordPress won't let you do that... until now!  Just install "Custom Front Page" and you can select any page, post or custom post type
 to be the homepage on your site.
 
 = How? =
@@ -48,7 +48,7 @@ that supports a more recent version of PHP.
 = The Easy Way =
 
 1. In your WordPress admin, go to 'Plugins' and then click on 'Add New'.
-2. In the search box, type in 'mPress Custom Front Page' and hit enter.  This plugin should be the first and likely the only result.
+2. In the search box, type in 'Custom Front Page' and hit enter.  This plugin should be the first and likely the only result.
 3. Click on the 'Install' link.
 4. Once installed, click the 'Activate this plugin' link.
 
