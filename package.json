@@ -1,0 +1,22 @@
+{
+  "name": "mpress-custom-front-page",
+  "description": "Easily set any page or post, including custom post types, as the homepage for your site.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "i18n": "wpi18n addtextdomain && wpi18n makepot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpscholar-wp-plugins/mpress-custom-front-page.git"
+  },
+  "author": "Micah Wood <micah@wpscholar.com> (https://wpscholar.com)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/wpscholar-wp-plugins/mpress-custom-front-page/issues"
+  },
+  "homepage": "https://github.com/wpscholar-wp-plugins/mpress-custom-front-page#readme",
+  "devDependencies": {
+    "node-wp-i18n": "^1.2.3"
+  }
+}
