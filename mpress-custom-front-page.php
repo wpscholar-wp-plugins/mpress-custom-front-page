@@ -7,6 +7,10 @@
  * Author: Micah Wood
  * Author URI: https://wpscholar.com
  * Version: 1.1.1
+ * Requires at least: 3.0
+ * Requires PHP: 5.4
+ * Text Domain: mpress-custom-front-page
+ * Domain Path: languages
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
@@ -14,6 +18,11 @@
  */
 
 define( 'MPRESS_CUSTOM_FRONT_PAGE_VERSION', '1.1.1' );
+
+// Load translations
+add_action( 'plugins_loaded', function () {
+	load_plugin_textdomain( basename( __DIR__ ), false, basename( __DIR__ ) . '/languages/' );
+} );
 
 if ( ! class_exists( 'mPress_Custom_Front_Page' ) ) {
 
