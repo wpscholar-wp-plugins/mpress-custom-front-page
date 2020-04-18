@@ -1,14 +1,12 @@
 {
     "name": "wpscholar/mpress-custom-front-page",
-    "description": "",
+    "description": "Easily set any page or post, including custom post types, as the homepage for your site.",
     "license": "GPL-2.0-or-later",
     "type": "wordpress-plugin",
     "authors": [
         {
             "name": "Micah Wood",
-            "email": "micah@wpscholar.com",
-            "homepage": "http://wpscholar.com",
-            "role": "Developer"
+            "homepage": "http://wpscholar.com"
         }
     ]
 }
