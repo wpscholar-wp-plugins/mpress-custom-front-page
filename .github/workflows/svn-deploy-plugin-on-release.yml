@@ -1,11 +1,12 @@
 name: Deploy to WordPress.org
 on:
-  push:
-    tags:
-      - "*"
+  release:
+    types:
+      - created
+      - edited
 jobs:
   tag:
-    name: New tag
+    name: On Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -14,4 +15,4 @@ jobs:
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SLUG: mpress-hide-from-search
+          ASSETS_DIR: .wporg
