@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="Project Rules">
+    <rule ref="WPScholar"/>
+    <config name="testVersion" value="5.3-"/>
+    <config name="minimum_supported_wp_version" value="3.0"/>
+    <exclude-pattern>*/.github/*</exclude-pattern>
+    <exclude-pattern>*/.wporg/*</exclude-pattern>
+</ruleset>
