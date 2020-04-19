@@ -27,4 +27,5 @@ wp-cli.local.yml
 *.log
 *.sql
 *.tar.gz
+*.xml
 *.zip
