@@ -4,8 +4,9 @@ on:
     types:
       - created
       - edited
+
 jobs:
-  tag:
+  deploy:
     name: On Release
     runs-on: ubuntu-latest
     steps:

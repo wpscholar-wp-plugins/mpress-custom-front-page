@@ -68,7 +68,7 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Install PHP Dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest --no-dev
+        run: composer install --prefer-dist --no-progress --no-suggest --no-dev --optimize-autoloader
 
       - name: Lint
         run: composer run lint
