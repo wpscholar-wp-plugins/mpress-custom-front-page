@@ -3,8 +3,9 @@ Contributors: wpscholar
 Donate link: https://www.paypal.me/wpscholar/15
 Tags: front page, homepage, custom post type, custom front page, custom homepage, custom post type as front page, custom post type as homepage
 Requires at least: 3.0
+Requires PHP: 5.3
 Tested up to: 5.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -68,6 +69,10 @@ Once the plugin is installed and activated, go to 'Settings' -> 'Reading' in the
 
 == Changelog ==
 
+= 1.1.2 =
+
+* Minor updates to improve code.
+
 = 1.1 =
 
 * Updated dropdown in customizer to support all registered post types (thanks https://github.com/WebDevLan4You).
@@ -88,6 +93,10 @@ Once the plugin is installed and activated, go to 'Settings' -> 'Reading' in the
 * Initial commit
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+
+* Minor updates to improve code.
 
 = 1.1 =
 
