@@ -22,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "vendor/bin/composer run-script lint"
+      "pre-push": "composer run-script lint"
     }
   }
 }
