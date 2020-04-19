@@ -3,8 +3,9 @@
   "description": "Easily set any page or post, including custom post types, as the homepage for your site.",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "i18n": "wpi18n addtextdomain && wpi18n makepot"
+    "i18n": "wpi18n addtextdomain && wpi18n makepot",
+    "lint": "npx yamllint **/*.yml",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,21 @@
   "homepage": "https://github.com/wpscholar-wp-plugins/mpress-custom-front-page#readme",
   "devDependencies": {
     "husky": "^4.2.5",
-    "node-wp-i18n": "^1.2.3"
+    "lint-staged": "^10.1.5",
+    "node-wp-i18n": "^1.2.3",
+    "yaml-lint": "^1.2.4"
   },
   "husky": {
     "hooks": {
-      "pre-push": "composer run-script lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "**/*.yml": [
+      "npm run lint"
+    ],
+    "**/*.php": [
+      "composer run-script-lint"
+    ]
   }
 }
