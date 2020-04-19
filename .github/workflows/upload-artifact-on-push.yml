@@ -70,6 +70,9 @@ jobs:
       - name: Install PHP Dependencies
         run: composer install --prefer-dist --no-progress --no-suggest --no-dev
 
+      - name: Lint
+        run: composer run lint
+
       - name: Remove development files
         run: .github/scripts/cleanup.sh
 
