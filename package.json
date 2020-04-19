@@ -33,7 +33,7 @@
       "npm run lint"
     ],
     "**/*.php": [
-      "composer run-script-lint"
+      "composer run-script lint"
     ]
   }
 }
