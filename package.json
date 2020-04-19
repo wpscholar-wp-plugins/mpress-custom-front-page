@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/wpscholar-wp-plugins/mpress-custom-front-page#readme",
   "devDependencies": {
+    "husky": "^4.2.5",
     "node-wp-i18n": "^1.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "vendor/bin/composer run-script lint"
+    }
   }
 }
